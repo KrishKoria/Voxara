@@ -4,6 +4,12 @@ import { type Metadata } from "next";
 import { Geist } from "next/font/google";
 import { Toaster } from "~/components/ui/sonner";
 import { Providers } from "~/components/providers";
+import {
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
+} from "~/components/ui/sidebar";
+import { AppSidebar } from "~/components/app-sidebar";
 
 export const metadata: Metadata = {
   title: "Voxara",
@@ -23,8 +29,16 @@ export default function RootLayout({
     <html lang="en" className={`${geist.variable}`}>
       <body className="flex min-h-svh flex-col items-center justify-center antialiased">
         <Providers>
-          {children}
           <Toaster />
+          <SidebarProvider defaultOpen={false}>
+            <AppSidebar />
+            <SidebarInset className="flex h-screen flex-col">
+              <header className="bg-background sticky-top z-10 border-b px-4 py-2">
+                <SidebarTrigger />
+              </header>
+              <main className="flex-1 overflow-y-auto">{children}</main>
+            </SidebarInset>
+          </SidebarProvider>
         </Providers>
       </body>
     </html>
