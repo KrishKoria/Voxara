@@ -7,7 +7,7 @@ from pydantic import BaseModel
 from typing import Optional
 import torch
 import torchaudio
-app = modal.App("text-to-speech generator")
+app = modal.App("text-to-speech-generator")
 image = (
     modal.Image.debian_slim(python_version="3.11").pip_install("numpy>=1.24,<1.26")
     .pip_install_from_requirements("text-to-speech/requirements.txt")
@@ -32,7 +32,8 @@ class TextToSpeechServer:
     @modal.enter()
     def load_model(self):
         self.model = ChatterboxTTS.from_pretrained(device="cuda")
-    @modal.fastapi_endpoint(method="POST")
+
+    @modal.fastapi_endpoint(method="POST", requires_proxy_auth=True)
     def generate_speech(self, req: TextToSpeechRequest) -> TextToSpeechResponse:
         with torch.no_grad():
             if req.voice_S3_Key:
@@ -68,7 +69,11 @@ def main():
         voice_S3_Key="samples/voices/test.wav"
     )
     payload = request.model_dump()
-    response = requests.post(endpoint_url, json=payload)
+    headers = {
+            "Modal-Key": "wk-c6cs7SvJNkuG4Voag7DcEO",
+            "Modal-Secret": "ws-2dfjKcFo8pDWdgZJ4FoWf1"
+    }
+    response = requests.post(endpoint_url, json=payload, headers=headers)
     response.raise_for_status()
     results = TextToSpeechResponse(**response.json())
     print("Generated audio S3 key:", results.s3_key)
