@@ -9,8 +9,14 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "~/components/ui/sidebar";
-import { AppSidebar } from "~/components/app-sidebar";
+import { AppSidebar } from "~/components/sidebar/app-sidebar";
 import { Separator } from "~/components/ui/separator";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbList,
+} from "~/components/ui/breadcrumb";
+import BreadcrumbClient from "~/components/breadcrumbclient";
 
 export const metadata: Metadata = {
   title: "Voxara",
@@ -41,6 +47,13 @@ export default function RootLayout({
                     orientation="vertical"
                     className="mr-2 data-[orientation=vertical]:h-4"
                   />
+                  <Breadcrumb>
+                    <BreadcrumbList>
+                      <BreadcrumbItem>
+                        <BreadcrumbClient />
+                      </BreadcrumbItem>
+                    </BreadcrumbList>
+                  </Breadcrumb>
                 </div>
               </header>
               <main className="flex-1 overflow-y-auto">{children}</main>
