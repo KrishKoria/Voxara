@@ -1,9 +1,9 @@
 import { Pause, Play } from "lucide-react";
-import { AudioUploaderAndRecorder } from "./audio-uploader-and-recorder";
 import { Button } from "./ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { useAudioPlayer } from "~/hooks/useAudioPlayer";
+import { AudioUploaderAndRecorder } from "./audio-uploader-recorder";
 
 export interface Voice {
   id: string;

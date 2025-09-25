@@ -18,7 +18,6 @@ import { Input } from "../ui/input";
 import { useRef, useState } from "react";
 import { Button } from "../ui/button";
 import { Textarea } from "../ui/textarea";
-import AudioUploadModal from "../audio-upload-modal";
 import ChooseVoiceModal, { type Voice } from "../choose-voice-modal";
 import { useAudioPlayer } from "~/hooks/useAudioPlayer";
 import Cropper, { type Area } from "react-easy-crop";
@@ -33,6 +32,8 @@ import {
 import { getPresignedUrl, photoToVideo } from "~/actions/generation";
 import { toast } from "sonner";
 import Image from "next/image";
+import getCroppedImg from "~/utils/cropImage";
+import AudioUploadModal from "../audio-upload-modal";
 
 const samplePhotos = [
   {
