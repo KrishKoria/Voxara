@@ -1,5 +1,6 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import ClientHome from "~/components/client-home";
 import { auth } from "~/lib/auth";
 
 export default async function HomePage() {
@@ -7,10 +8,5 @@ export default async function HomePage() {
     headers: await headers(),
   });
   if (!session) redirect("/auth/sign-in");
-  return (
-    <div>
-      <h1>Welcome to Voxara</h1>
-      <p>Your session is active.</p>
-    </div>
-  );
+  return <ClientHome />;
 }
