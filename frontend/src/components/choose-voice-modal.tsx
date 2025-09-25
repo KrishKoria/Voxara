@@ -22,9 +22,8 @@ const VoxaraLibraryVoice: Voice[] = [
     tags: ["Deep", "American", "Assertive"],
     accent: "American",
     flag: "🇺🇸",
-    audioSrc:
-      "https://public-hey-gen-clone.s3.us-east-1.amazonaws.com/samples/voices/bezos.wav",
-    s3Key: "samples/voices/bezos.wav",
+    audioSrc: "https://public-voxara.t3.storage.dev/samples/voices/2.wav",
+    s3Key: "samples/voices/2.wav",
   },
   {
     id: "v2",
@@ -32,9 +31,8 @@ const VoxaraLibraryVoice: Voice[] = [
     tags: ["Articulate", "American"],
     accent: "American",
     flag: "🇺🇸",
-    audioSrc:
-      "https://public-hey-gen-clone.s3.us-east-1.amazonaws.com/samples/voices/harris.wav",
-    s3Key: "samples/voices/harris.wav",
+    audioSrc: "https://public-voxara.t3.storage.dev/samples/voices/3.wav",
+    s3Key: "samples/voices/3.wav",
   },
   {
     id: "v3",
@@ -42,9 +40,8 @@ const VoxaraLibraryVoice: Voice[] = [
     tags: ["Direct", "American"],
     accent: "American",
     flag: "🇺🇸",
-    audioSrc:
-      "https://public-hey-gen-clone.s3.us-east-1.amazonaws.com/samples/voices/zuck.wav",
-    s3Key: "samples/voices/zuck.wav",
+    audioSrc: "https://public-voxara.t3.storage.dev/samples/voices/1.wav",
+    s3Key: "samples/voices/1.wav",
   },
 ];
 

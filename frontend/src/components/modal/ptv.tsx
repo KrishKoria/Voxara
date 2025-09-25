@@ -30,23 +30,22 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
-import getCroppedImg from "~/utils/cropImage";
 import { getPresignedUrl, photoToVideo } from "~/actions/generation";
 import { toast } from "sonner";
 import Image from "next/image";
 
 const samplePhotos = [
   {
-    s3Key: "samples/photos/0008.jpg",
-    url: "https://public-hey-gen-clone.s3.us-east-1.amazonaws.com/samples/photos/0008.jpg",
+    s3Key: "samples/photos/0003.jpg",
+    url: "https://public-voxara.t3.storage.dev/samples/photos/0003.jpg",
   },
   {
     s3Key: "samples/photos/0009.jpg",
-    url: "https://public-hey-gen-clone.s3.us-east-1.amazonaws.com/samples/photos/0009.jpg",
+    url: "https://public-voxara.t3.storage.dev/samples/photos/0009.jpg",
   },
   {
     s3Key: "samples/photos/0022.jpg",
-    url: "https://public-hey-gen-clone.s3.us-east-1.amazonaws.com/samples/photos/0022.jpg",
+    url: "https://public-voxara.t3.storage.dev/samples/photos/0022.jpg",
   },
 ];
 
